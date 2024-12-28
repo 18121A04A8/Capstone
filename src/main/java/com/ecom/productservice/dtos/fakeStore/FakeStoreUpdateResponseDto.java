@@ -1,9 +1,10 @@
-package com.ecom.productservice.daos.fakeStore;
+package com.ecom.productservice.dtos.fakeStore;
 
+import com.ecom.productservice.models.Category;
 import com.ecom.productservice.models.Product;
 
 
-public class FakeStoreResponseDto {
+public class FakeStoreUpdateResponseDto {
 
     private String title;
     private double price;
@@ -12,10 +13,12 @@ public class FakeStoreResponseDto {
     private String category;
     private Long id;
 
-    public Product  toProduct(){
+    public Product toProduct(){
         Product product = new Product();
         product.setName(this.title);
-        product.setCategory(this.category);
+        Category category = new Category();
+        category.setName(this.category);
+        product.setCategory(category);
         product.setDescription(this.description);
         product.setPrice(this.price);
         product.setImageUrl(this.image);
@@ -23,6 +26,7 @@ public class FakeStoreResponseDto {
 
         return product;
     }
+
 
     public String getTitle() {
         return title;

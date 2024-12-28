@@ -1,6 +1,6 @@
 package com.ecom.productservice.services;
 
-import com.ecom.productservice.daos.product.UpdateProductRequestDto;
+import com.ecom.productservice.exceptions.ProductNotFoundException;
 import com.ecom.productservice.models.Product;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public interface ProductService {
 
     public List<Product> getAllProducts();
 
-    public Product getProduct(Long id);
+    public Product getProduct(Long id) throws ProductNotFoundException;
 
     public Product updateProduct(Long id, Product product);
 }

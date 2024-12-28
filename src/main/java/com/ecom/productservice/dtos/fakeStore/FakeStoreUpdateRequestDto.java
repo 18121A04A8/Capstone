@@ -1,6 +1,8 @@
-package com.ecom.productservice.daos.fakeStore;
+package com.ecom.productservice.dtos.fakeStore;
 
+import com.ecom.productservice.models.Category;
 import com.ecom.productservice.models.Product;
+
 
 public class FakeStoreUpdateRequestDto {
     private String title;
@@ -13,12 +15,13 @@ public class FakeStoreUpdateRequestDto {
         FakeStoreUpdateRequestDto fakeStoreUpdateRequestDto = new FakeStoreUpdateRequestDto();
         fakeStoreUpdateRequestDto.title = product.getName();
         fakeStoreUpdateRequestDto.description = product.getDescription();
-        fakeStoreUpdateRequestDto.category = product.getCategory();
+        fakeStoreUpdateRequestDto.category = product.getCategory().getName();
         fakeStoreUpdateRequestDto.price = product.getPrice();
         fakeStoreUpdateRequestDto.image = product.getImageUrl();
 
         return fakeStoreUpdateRequestDto;
     }
+
 
     public String getTitle() {
         return title;

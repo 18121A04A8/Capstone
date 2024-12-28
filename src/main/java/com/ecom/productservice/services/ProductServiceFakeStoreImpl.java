@@ -1,10 +1,8 @@
 package com.ecom.productservice.services;
 
-import com.ecom.productservice.daos.fakeStore.FakeStoreCreateProductRequestDto;
-import com.ecom.productservice.daos.fakeStore.FakeStoreResponseDto;
-import com.ecom.productservice.daos.fakeStore.FakeStoreUpdateRequestDto;
-import com.ecom.productservice.daos.fakeStore.FakeStoreUpdateResponseDto;
-import com.ecom.productservice.daos.product.UpdateProductRequestDto;
+import com.ecom.productservice.dtos.fakeStore.FakeStoreCreateProductRequestDto;
+import com.ecom.productservice.dtos.fakeStore.FakeStoreResponseDto;
+import com.ecom.productservice.dtos.fakeStore.FakeStoreUpdateResponseDto;
 import com.ecom.productservice.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -44,9 +42,9 @@ public class ProductServiceFakeStoreImpl implements  ProductService{
 
     @Override
     public Product updateProduct(Long id, Product product) {
-
+        throw new UnsupportedOperationException("Not supported yet.");
         //FakeStoreUpdateResponseDto fakeStoreUpdateResponseDto = restTemplate.patchForObject("https://fakestoreapi.com/products/" + id, FakeStoreUpdateRequestDto.fromProduct(product), FakeStoreUpdateResponseDto.class);
-        FakeStoreUpdateResponseDto fakeStoreUpdateResponseDto = new FakeStoreUpdateResponseDto();
-        return fakeStoreUpdateResponseDto.toProduct();
+        //FakeStoreUpdateResponseDto fakeStoreUpdateResponseDto = new FakeStoreUpdateResponseDto();
+       // return fakeStoreUpdateResponseDto.toProduct();
     }
 }

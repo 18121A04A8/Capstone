@@ -1,13 +1,14 @@
-package com.ecom.productservice.daos.product;
+package com.ecom.productservice.dtos.product;
 
 import com.ecom.productservice.models.Product;
+
 
 public class GetProductResponseDto {
     private Long id;
     private String name;
     private String description;
     private double price;
-    private String category;
+    private String categoryName;
     private String imageUrl;
 
     public static GetProductResponseDto fromProduct(Product product){
@@ -16,10 +17,12 @@ public class GetProductResponseDto {
         getAllProductsResponseDto.setName(product.getName());
         getAllProductsResponseDto.setDescription(product.getDescription());
         getAllProductsResponseDto.setPrice(product.getPrice());
-        getAllProductsResponseDto.setCategory(product.getCategory());
+        getAllProductsResponseDto.setCategoryName(product.getCategory().getName());
         getAllProductsResponseDto.setImageUrl(product.getImageUrl());
         return getAllProductsResponseDto;
     }
+
+
     public Long getId() {
         return id;
     }
@@ -52,12 +55,12 @@ public class GetProductResponseDto {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getImageUrl() {

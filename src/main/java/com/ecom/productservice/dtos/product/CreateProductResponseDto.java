@@ -1,9 +1,6 @@
-package com.ecom.productservice.daos.product;
+package com.ecom.productservice.dtos.product;
 
 import com.ecom.productservice.models.Product;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class CreateProductResponseDto {
@@ -11,13 +8,13 @@ public class CreateProductResponseDto {
     private String name;
     private String description;
     private double price;
-    private String category;
+    private String categoryName;
     private String imageUrl;
 
     public static CreateProductResponseDto fromProduct(Product product){
         CreateProductResponseDto createProductResponseDto = new CreateProductResponseDto();
         createProductResponseDto.setName(product.getName());
-        createProductResponseDto.setCategory(product.getCategory());
+        createProductResponseDto.setCategoryName(product.getCategory().getName());
         createProductResponseDto.setDescription(product.getDescription());
         createProductResponseDto.setPrice(product.getPrice());
         createProductResponseDto.setId(product.getId());
@@ -25,6 +22,7 @@ public class CreateProductResponseDto {
 
         return createProductResponseDto;
     }
+
 
     public Long getId() {
         return id;
@@ -58,12 +56,12 @@ public class CreateProductResponseDto {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getImageUrl() {

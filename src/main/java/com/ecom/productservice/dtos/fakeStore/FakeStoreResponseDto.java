@@ -1,26 +1,33 @@
-package com.ecom.productservice.daos.fakeStore;
+package com.ecom.productservice.dtos.fakeStore;
 
+import com.ecom.productservice.models.Category;
 import com.ecom.productservice.models.Product;
-import lombok.Data;
 
 
-public class FakeStoreCreateProductRequestDto {
+public class FakeStoreResponseDto {
+
     private String title;
     private double price;
-    private String image;
     private String description;
+    private String image;
     private String category;
+    private Long id;
 
-    public static FakeStoreCreateProductRequestDto fromProduct(Product product) {
-        FakeStoreCreateProductRequestDto fakeStoreCreateProductRequestDto = new FakeStoreCreateProductRequestDto();
-        fakeStoreCreateProductRequestDto.title = product.getName();
-        fakeStoreCreateProductRequestDto.description = product.getDescription();
-        fakeStoreCreateProductRequestDto.category = product.getCategory();
-        fakeStoreCreateProductRequestDto.price = product.getPrice();
-        fakeStoreCreateProductRequestDto.image = product.getImageUrl();
+    public Product  toProduct(){
+        Product product = new Product();
+        product.setName(this.title);
+        Category category = new Category();
+        category.setName(this.category);
+        product.setCategory(category);
+        product.setDescription(this.description);
+        product.setPrice(this.price);
+        product.setImageUrl(this.image);
+        product.setId(this.id);
 
-        return fakeStoreCreateProductRequestDto;
+        return product;
     }
+
+
     public String getTitle() {
         return title;
     }
@@ -59,5 +66,13 @@ public class FakeStoreCreateProductRequestDto {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

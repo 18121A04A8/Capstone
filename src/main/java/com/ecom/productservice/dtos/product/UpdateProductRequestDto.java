@@ -1,24 +1,30 @@
-package com.ecom.productservice.daos.product;
+package com.ecom.productservice.dtos.product;
 
+import com.ecom.productservice.models.Category;
 import com.ecom.productservice.models.Product;
+
 
 public class UpdateProductRequestDto {
     private String name;
     private String description;
     private double price;
-    private String category;
+    private String categoryName;
     private String imageUrl;
 
     public Product toProduct(){
         Product product = new Product();
         product.setName(this.name);
-        product.setCategory(this.category);
+        Category category = new Category();
+        category.setName(this.categoryName);
+        product.setCategory(category);
         product.setDescription(this.description);
         product.setPrice(this.price);
         product.setImageUrl(this.imageUrl);
 
         return product;
     }
+
+
     public String getName() {
         return name;
     }
@@ -43,12 +49,12 @@ public class UpdateProductRequestDto {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getImageUrl() {
